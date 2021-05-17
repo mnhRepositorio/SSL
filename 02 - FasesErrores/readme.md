@@ -64,3 +64,5 @@ collect2.exe: error: ld returned 1 exit status
 No me funciono, tuve que incluir #include <stdio.h> para que funcione
 
 ### 6. Compilación Separada: Contratos y Módulos
+-**a. Escribir studio1.c (sí, studio1, no stdio) y hello8.c.**
+
