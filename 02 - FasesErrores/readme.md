@@ -1,6 +1,9 @@
 # Fases de la Traducción y Errores
 ## Secuencia de Pasos
 ### 1. Preprocesador
+Esta es la primera etapa del proceso de compilación donde se expanden las directivas del preprocesador (las macros y los archivos de encabezado son los más comunes). Para realizar este paso, se ejecuta el siguiente comando: 
+gcc -E hello.c -std=c11 -o hello.i 
+
 - **a. Escribir hello2.c, que es una variante de hello.c**
 
 - **b. Preprocesar hello2.c, no compilar, y generar hello2.i. Analizar su contenido. ¿Qué conclusiones saca?**
