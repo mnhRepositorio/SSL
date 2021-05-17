@@ -19,3 +19,48 @@ Devuelve el número de caracteres generados o devuelve un valor negativo si la f
 
 - **e. Preprocesar hello3.c, no compilar, y generar hello3.i. Buscar diferencias entre hello3.c y hello3.i.**
 No encuentro diferencias.
+
+### 2. Compilación
+En esta fase tiene lugar la compilación propiamente dicha. El compilador traduce hello.i en hello.s. El archivo hello.s contiene código ensamblador. Se puede decir explícitamente gcc para traducir hello.i a hello.s ejecutando el siguiente comando.
+
+gcc -S hello.i -std=c11 -o hello.s
+
+- **a. Compilar el resultado y generar hello3.s, no ensamblar.**
+hello3.c: In function 'main':
+hello3.c:4:2: warning: implicit declaration of function 'prontf' [-Wimplicit-function-declaration]
+  prontf("La respuesta es %d\n");
+  ^~~~~~
+hello3.c:4:2: error: expected declaration or statement at end of input
+
+- **b. Corregir solo los errores, no los warnings, en el nuevo archivo hello4.c y empezar de nuevo, generar hello4.s, no ensamblar.**
+
+- **c. Leer hello4.s, investigar sobre el lenguaje ensamblador, e indicar de formar sintética cúal es el objetivo de ese código.**
+
+El lenguaje ensamblador es un programa que permite llevar los códigos de operación y operandos en forma de instrucciones o nemónicos fácilmente entendibles e identificables por el programador a códigos de lenguaje máquina que se presentan con números hexadecimales en memoria.
+
+- **d. Ensamblar hello4.s en hello4.o, no vincular.**
+Para esto utilizo el siguiente comando: as hello4.s -o hello4.o
+
+### 3. Vinculación
+Esta fase vincula archivos de objeto para producir un archivo ejecutable final. Un archivo ejecutable requiere muchos recursos externos (funciones del sistema, bibliotecas de tiempo de ejecución de C, etc.)
+
+- **a. Vincular hello4.o con la biblioteca estándar y generar el ejecutable.**
+
+hello4.o:hello4.c:(.text+0x1e): undefined reference to "prontf"
+collect2.exe: error: ld returned 1 exit status
+
+- **b. Corregir en hello5.c y generar el ejecutable. Solo corregir lo necesario para que vincule.**
+
+- **c. Ejecutar y analizar el resultado.**
+
+### 4. Corrección de Bug
+- **a. Corregir en hello6.c y empezar de nuevo; verificar que funciona como se espera.**
+
+
+### 5. Remoción de prototipo
+-**a. Escribir hello7.c, una nueva variante.**
+-**b. Explicar porqué funciona.**
+
+No me funciono, tuve que incluir #include <stdio.h> para que funcione
+
+### 6. Compilación Separada: Contratos y Módulos
